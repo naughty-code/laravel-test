@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class NotesController extends Controller
 {
     public function index(){
-      $notes = Note::all();
-      return view('notes\list', compact('notes'));
+      $notes = Note::paginate();
+      return view('notes/list', compact('notes'));
     }
 
     public function create(){

@@ -8,6 +8,7 @@ use App\Note;
 
 class NotesTest extends TestCase
 {
+  use DatabaseTransactions;
     /**
      * A basic test example.
      *
@@ -35,7 +36,7 @@ class NotesTest extends TestCase
         ->seePageIs('notes')
         ->see('A new note')
         ->seeInDatabase('notes', [
-          'note' => 'A new note'
+          'text' => 'A new note'
         ]);
     }
 }
